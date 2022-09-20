@@ -32,7 +32,7 @@ int main()
 	while(1)
 	{
 		c = next();
-		switch(s)
+		switch(state)
 		{
 			case 2:
 				if(c != 'a')
@@ -49,7 +49,7 @@ int main()
    
 error:
 	cout << "ERROR!" << endl;
-	cout << "Input " + c + " not legal in state " + s << endl;
+	cout << "Input " + c + " not legal in state " + state << endl;
 	return -1;
 */
 }
