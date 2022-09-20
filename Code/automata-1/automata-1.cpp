@@ -12,6 +12,10 @@ const char inputs[] = {'b', 'c'};
 	// return i >= inputs_size;
 // }
 
+/*
+ * Gets next inputs, or 'x' if no inputs available.
+ * WARNING: this function shifts the input, once you call it!
+ */
 char next()
 {
 	static int i = 0;
@@ -25,8 +29,9 @@ int main()
 /*
 	int state = 0;
 	
-	while(c == next())
+	while(1)
 	{
+		c = next();
 		switch(s)
 		{
 			case 2:

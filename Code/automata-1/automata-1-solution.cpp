@@ -5,7 +5,10 @@ using namespace std;
 const char inputs[] = {'a', 'a', 'b', 'c'};
 int ninputs = sizeof(inputs) / sizeof(inputs[0]);
 
-/* Gets next inputs, or 'x' if no inputs available */
+/*
+ * Gets next inputs, or 'x' if no inputs available.
+ * WARNING: this function shifts the input, once you call it!
+ */
 char next()
 {
 	static int i = 0;
@@ -16,16 +19,16 @@ char next()
 
 /*
  * Computes next state. Returns the following
- *   >0 : the next state
- *   -1 : input sequence not legal
- *   -2 : we're in final state
- *   -3 : internal error
+ *   >=0 : the next state
+ *   -1  : input sequence not legal
+ *   -2  : we're in final state
+ *   -3  : internal error
  */
 int nextState(int currState, char input)
 {
 	switch(currState)
 	{
-		case 0:
+		case 0: // if in S0
 			switch(input)
 			{
 				case 'a': return 2;
@@ -35,7 +38,7 @@ int nextState(int currState, char input)
 			}
 			break;
 			
-		case 1:
+		case 1: // if I am in S1
 			switch(input)
 			{
 				case 'a': break;
@@ -45,7 +48,7 @@ int nextState(int currState, char input)
 			}
 			break;
 			
-		case 2:
+		case 2: // if I am in S2
 			switch(input)
 			{
 				case 'a': return 0;
@@ -55,10 +58,10 @@ int nextState(int currState, char input)
 			}
 			break;
 			
-		case 3:
+		case 3: // if I am in S3
 			return -2;
 			
-		default:
+		default: // if I am in S>4
 			return -3;
 	}
 	
