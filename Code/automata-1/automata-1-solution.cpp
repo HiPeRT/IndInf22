@@ -24,7 +24,7 @@ char next()
  *   -2  : we're in final state
  *   -3  : internal error
  */
-int nextState(int currState, char input)
+int nextState(int currState, char input) // TODO please, let's modify this name
 {
 	switch(currState)
 	{
