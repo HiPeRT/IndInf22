@@ -1,21 +1,10 @@
 #include <iostream>
+#include "nextCharLib/nextCharLib.hpp"
 
 using namespace std;
 
 const char inputs[] = {'a', 'a', 'b', 'c'};
 int ninputs = sizeof(inputs) / sizeof(inputs[0]);
-
-/*
- * Gets next inputs, or 'x' if no inputs available.
- * WARNING: this function shifts the input, once you call it!
- */
-char next()
-{
-	static int i = 0;
-	if(i >= ninputs)
-		return 'x';
-	return inputs[i++];
-}
 
 /*
  * Computes next state. Returns the following
@@ -84,7 +73,7 @@ int main()
 	while(1)
 	{
 		// Get next input
-		c = next();
+		c = nextChar(inputs);
 		
 		// We ran out of inputs, and
 		if(c == 'x')
