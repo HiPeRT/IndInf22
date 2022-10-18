@@ -17,6 +17,11 @@ char next()
 	return inputs[i++];
 }
 
+void write(std::string s)
+{
+	cout << s << endl;
+}
+
 /*
  * Computes next state. Returns the following
  *   >=0 : the next state
@@ -24,15 +29,19 @@ char next()
  *   -2  : we're in final state
  *   -3  : internal error
  */
-int nextState(int currState, char input)
+int stateFn(int currState, char input)
 {
 	switch(currState)
 	{
 		case 0: // if in S0
 			switch(input)
 			{
-				case 'a': return 2;
-				case 'b': return 1;
+				case 'a':
+					write("Output is 4");
+					return 2;
+				case 'b':
+					write("Output is 2");
+					return 1;
 				case 'c': return 3;
 				default:  break;
 			}
@@ -69,16 +78,28 @@ int nextState(int currState, char input)
 	return -1;
 }
 
+void machineFn_Mealy(int stateFrom, int stateTo, char input)
+{
+	switch(stateFrom)
+	cout << "Output is 6" << endl;
+}
+
 bool isFinalState(int s)
 {
 	return s == 3;
 }
 
+void debug(std::string s)
+{
+	cout << s << endl;
+}
+
 int main()
 {
-	cout << "Inputs size is " << ninputs << endl;
+	debug("Inputs size is " << ninputs);
+
 	int currState = 0;
-	int state = -1;
+	int tempState = -1;
 	char c;
 	
 	while(1)
@@ -98,20 +119,23 @@ int main()
 		
 		cout << "Next input word is " << c << ", current state is " << currState << endl;
 		
-		state = nextState(currState, c);
+		tempState = stateFn(currState, c);
 		
 		// Check for errors
-		if(state < 0)
+		if(tempState < 0)
 			goto error;
 		
-		cout << "Next state will be " << state << endl;
+		cout << "Next state will be " << tempState << endl;
 		
-		if(isFinalState(state))
+		if(isFinalState(tempState))
 			break;
 		
+		machineFn_Mealy(currState, tempState, c);
+
 		// Update curr state
-		currState = state;
-	}
+		currState = tempState;
+
+	} // while
 	
 	cout << "Input sequence is legal for our Language" << endl;
 	return 0;
@@ -119,6 +143,6 @@ int main()
 error:
 	cout << "ERROR!" << endl;
 	cout << "Input " << c << " not legal for state " << currState << endl;
-	cout << "Error code is " << state << endl;
-	return state;
+	cout << "Error code is " << tempState << endl;
+	return tempState;
 }
