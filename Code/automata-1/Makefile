@@ -1,12 +1,13 @@
 CC=gcc
-CSRCS=automata-1-solution.cpp
+CSRCS=automata-1-solution.cpp runtime/unix/nextCharLib.cpp
 CFLAGS=
+ALL_CFLAGS= -I runtime/ ${CFLAGS}
 #CFLAGS=-Wall
 LDFLAGS=-l stdc++
-EXENAME=automata-1.exe
+EXENAME=automata-1
 
-all: clean
-	${CC} ${CSRCS} -o ${EXENAME} ${CFLAGS} ${LDFLAGS}
+all: 
+	${CC} ${CSRCS} -o ${EXENAME} ${ALL_CFLAGS} ${LDFLAGS}
 
 clean:
 	rm ${EXENAME}
