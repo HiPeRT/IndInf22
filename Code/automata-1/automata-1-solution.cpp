@@ -1,5 +1,5 @@
 #include <iostream>
-#include "nextCharLib/nextCharLib.hpp"
+#include "runtime.h"
 
 using namespace std;
 
