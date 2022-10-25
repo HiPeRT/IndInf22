@@ -2,10 +2,11 @@
 
 using namespace std;
 
-char nextChar(const char* inputs)
+const char inputs[] = {'a', 'a', 'b', 'c'};
+int ninputs = sizeof(inputs) / sizeof(inputs[0]);
+
+char nextChar()
 {
-    int ninputs = sizeof(inputs) / sizeof(inputs[0]);
-    
     static int i = 0;
     if (i >= ninputs)
         return 'x';
