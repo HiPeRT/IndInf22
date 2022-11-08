@@ -7,6 +7,8 @@ void *my_pthread_fn(void *arg)
 {
     // Thread body
     cout << "\t\t\t\t\tHello PThreads World! I am another thread" << endl;
+
+    return NULL;
 }
 
 int main()
