@@ -3,8 +3,6 @@
 
 using namespace std;
 
-const char inputs[] = {'a', 'a', 'b', 'c'};
-int ninputs = sizeof(inputs) / sizeof(inputs[0]);
 
 /*
  * Computes next state. Returns the following
@@ -65,7 +63,7 @@ bool isFinalState(int s)
 
 int main()
 {
-	cout << "Inputs size is " << ninputs << endl;
+	// cout << "Inputs size is " << ninputs << endl;
 	int currState = 0;
 	int state = -1;
 	char c;
@@ -73,7 +71,7 @@ int main()
 	while(1)
 	{
 		// Get next input
-		c = nextChar(inputs);
+		c = nextChar();
 		
 		// We ran out of inputs, and
 		if(c == 'x')

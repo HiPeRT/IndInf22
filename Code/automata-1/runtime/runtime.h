@@ -7,7 +7,7 @@
  * Gets next inputs, or 'x' if no inputs available.
  * WARNING: this function shifts the input, once you call it!
  */
-char nextChar(const char* inputs);
+char nextChar();
 
 void debug();
 
