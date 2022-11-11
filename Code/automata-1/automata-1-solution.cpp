@@ -3,6 +3,10 @@
 
 using namespace std;
 
+void write(std::string s)
+{
+    cout << s << endl;
+}
 
 /*
  * Computes next state. Returns the following
@@ -18,30 +22,48 @@ int nextState(int currState, char input) // TODO please, let's modify this name
 		case 0: // if in S0
 			switch(input)
 			{
-				case 'a': return 2;
-				case 'b': return 1;
-				case 'c': return 3;
-				default:  break;
+				case 'a':
+                    write ("output is 4\n");
+                    return 2;
+                case 'b':
+                    write ("output is 2\n");
+                    return 1;
+                case 'c':
+                    write ("output is 9\n");
+                    return 3;
+                default:
+                    break;
 			}
 			break;
 			
 		case 1: // if I am in S1
 			switch(input)
 			{
-				case 'a': break;
-				case 'b': return 1;
-				case 'c': return 3;
-				default:  break;
+				case 'a':
+                    break;
+                case 'b':
+                    write ("output is 1\n");
+                    return 1;
+                case 'c':
+                    write ("output is 6\n");
+                    return 3;
+                default:
+                    break;
 			}
 			break;
 			
 		case 2: // if I am in S2
 			switch(input)
 			{
-				case 'a': return 0;
-				case 'b': break;
-				case 'c': break;
-				default: break;
+				case 'a':
+                    write ("output is 5\n");
+                    return 0;
+                case 'b':
+                    break;
+                case 'c':
+                    break;
+                default:
+                    break;
 			}
 			break;
 			
@@ -109,3 +131,4 @@ error:
 	cout << "Error code is " << state << endl;
 	return state;
 }
+
