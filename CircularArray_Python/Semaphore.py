@@ -16,10 +16,10 @@ def Semaphore_Threads(Lista,Carattere):
                 Lista.Add(Carattere)
                 Lista.print(Lista.lenght)
                 time.sleep(2)
-                lock.release()
                 obj.release()
+                lock.release()
 
-    def MTremove(lock):
+    def MTExtract(lock):
         while True:
 
             if Lista.lunghezza==5:
@@ -27,11 +27,11 @@ def Semaphore_Threads(Lista,Carattere):
                 obj.acquire()
                 Lista.Extract()
                 time.sleep(2)
-                lock.release()
                 obj.release()
+                lock.release()
 
     t1 = Thread(target = MTAdd , args = [lock])
-    t2 = Thread(target = MTremove , args = [lock])
+    t2 = Thread(target = MTExtract, args = [lock])
     t1.start()
     t2.start()
     t1.join()

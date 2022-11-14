@@ -24,7 +24,6 @@ class Circular_Array:
         #print("HEAD ora è", str(self.head))
 
     def Extract(self):
-
         self.array.pop(0)
         self.lunghezza = len(self.array)
         self.tail=(self.tail+1)%self.lenght
