@@ -16,8 +16,7 @@ int main()
 
     // Check
     for(int i=0; i<N_ELEM; i++)
-        cout << "arr[" << i << "] now is " << arr[i] << endl;
-    
+        cout << "arr[" << i << "] now is " << arr[i] << endl;    
 
     return 0;
 }
