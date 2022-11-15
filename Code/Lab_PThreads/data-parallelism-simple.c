@@ -27,7 +27,7 @@ int main()
 
     pthread_t mythreads[NUM_THREADS];
     pthread_attr_t myattr;
-    void *returnvalue = new int;
+    void *returnvalue;
 
     // Init arr
     for(int i=0; i<N_ELEM; i++)
@@ -44,7 +44,7 @@ int main()
     pthreads_fn((void *) 0);
     
     for(int i=1; i<NUM_THREADS; i++) // <== JOIN
-        pthread_join(mythreads[i], returnvalue);
+        pthread_join(mythreads[i], &returnvalue);
 
     // Check (after join!!)
     for(int i=0; i<N_ELEM; i++)
