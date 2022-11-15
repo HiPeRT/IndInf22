@@ -7,7 +7,6 @@ int main()
     int arr[N_ELEM];
 
     // Init arr
-
     for(int i=0; i<N_ELEM; i++)
         arr[i]= i;        
 

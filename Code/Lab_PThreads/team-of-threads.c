@@ -28,7 +28,7 @@ int main()
     // Now, the man (master) thread can do other useful stuff, here
     // while other (slave) threads execute in parallel
     
-    for(int i=0; i<NUM_THREADS; i++) // <== JOIN
+    for(int i=1; i<NUM_THREADS; i++) // <== JOIN
     {
         pthread_join(mythreads[i], returnvalue); // Now, returnvalue contains the value returned by pthreads_fn
     }
