@@ -18,10 +18,10 @@ int main()
     pthread_attr_t myattr;
     void *returnvalue;
 
-    for(int i=0; i<NUM_THREADS; i++) // ==> FORK
+    for(int i=1; i<NUM_THREADS; i++) // ==> FORK
     {
         pthread_attr_init(&myattr);
-        int err = pthread_create (&mythreads[i], &myattr, pthreads_fn, (void *) (i+1)); // Pass 'i' as identifier for thread
+        int err = pthread_create (&mythreads[i], &myattr, pthreads_fn, (void *) i); // Pass 'i' as identifier for thread
         pthread_attr_destroy(&myattr);
     }
 
