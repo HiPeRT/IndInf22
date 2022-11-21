@@ -34,7 +34,6 @@ void * pthreads_fn(void * args)
 
 int main()
 {
-
     pthread_t mythreads[NUM_THREADS];
     pthread_attr_t myattr;
 
