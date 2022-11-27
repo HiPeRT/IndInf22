@@ -27,6 +27,7 @@ task* q_pop()
 
 	task* elem = q[tail];
 	tail = (tail + 1) % SIZE;
+
     sem_post(&mutex);
     sem_post(&full);
 
@@ -38,6 +39,7 @@ void q_init()
     q = new task*[SIZE];
     head=0;
     tail=0;
+    
     sem_init(&empty, 0, 0);
     sem_init(&full, 0, SIZE);
     sem_init(&mutex, 0, 1);
