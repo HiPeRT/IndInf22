@@ -1,7 +1,7 @@
 CC=gcc
-CSRCS=automata-1-solution.cpp runtime/unix/nextCharLib.cpp
+CSRCS=automata-1-solution.c runtime/unix/nextCharLib.c FSM/FSM_1.c
 CFLAGS=
-ALL_CFLAGS= -I runtime/ ${CFLAGS}
+ALL_CFLAGS= -I runtime/ -I FSM/ ${CFLAGS}
 #CFLAGS=-Wall
 LDFLAGS=-l stdc++
 EXENAME=automata-1
